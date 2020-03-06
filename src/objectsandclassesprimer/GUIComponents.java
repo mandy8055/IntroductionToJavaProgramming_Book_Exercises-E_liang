@@ -37,6 +37,5 @@ public class GUIComponents {
         jFrame.setLocation(100, 200);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setVisible(true);
-
     }
 }
