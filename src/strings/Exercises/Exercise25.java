@@ -11,7 +11,7 @@ public class Exercise25 {
 
 class Hangman{
     private static final Scanner sc = new Scanner(System.in);
-    private static Random random = new Random();
+    private static final Random random = new Random();
     private final String[] wordList = {"hurry", "body", "corrupt", "announce", "conspire",
             "transfer", "magnify", "uttermost", "kindhearted", "faithful", "obese", "mew"};
     private final int totalHints = 5;
@@ -27,8 +27,9 @@ class Hangman{
         gameState = -1;
     }
 
+//  Get a random word from the wordList array
     public String getWord(){
-        return wordList[random.nextInt(11)];
+        return wordList[random.nextInt(wordList.length - 1)];
     }
 
     public void playGame(){
@@ -40,7 +41,7 @@ class Hangman{
                 if (isPresent(encrypted, ch))System.out.println(ch + " is already in the word.");
                 else encrypted = getUpdatedString(ch);
             }else {
-                System.out.println(ch + " is not in the word.\t\t\t\t\t");
+                System.out.println(ch + " is not in the word.");
                 hintsRemaining--;
             }
             if(countStars() == 0)gameState = 0;
@@ -69,6 +70,7 @@ class Hangman{
         }
         return false;
     }
+//  Method to display message when a user looses
     private String gameOver(){
         return "Well Tried!!! The word was " + word + ". Better luck next time...";
     }
@@ -77,18 +79,19 @@ class Hangman{
         StringBuilder sb = new StringBuilder();
         int i = 0;
         for(char chr : word.toCharArray()){
-            if(chr == ch)sb.append(ch);
+            if(chr == ch || chr == ' ')sb.append(ch);
             else if(encrypted.charAt(i) != '*')sb.append(chr);
             else sb.append("*");
             i++;
         }
         return sb.toString();
     }
-
+//  Method to display message when a user wins the game
     private String victory(){
         return "Viola!! You guessed it right. Congratulations on the job well done...";
     }
 
+//  Method to count number of stars in the given encrypted String
     private int countStars(){
         int counter = 0;
         for(char ch: encrypted.toCharArray()){
