@@ -19,7 +19,7 @@ class Hangman{
     private String encrypted;
     private int hintsRemaining;
     private int gameState;
-    public Hangman(){
+    Hangman(){
         word = getWord();
         word = word.toLowerCase();
         encrypted = getStars();
@@ -28,7 +28,7 @@ class Hangman{
     }
 
 //  Get a random word from the wordList array
-    public String getWord(){
+    private String getWord(){
         return wordList[random.nextInt(wordList.length - 1)];
     }
 
