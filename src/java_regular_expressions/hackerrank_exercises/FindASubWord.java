@@ -4,7 +4,6 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 public class FindASubWord {
     private static final Scanner sc = new Scanner(System.in);
-    //= Pattern.compile("\\b[a-zA-Z]+(?:se|ze)\\b");
     public static void main(String[] args){
         int numberOfLines = sc.nextInt();
         sc.nextLine();
@@ -19,11 +18,11 @@ public class FindASubWord {
         String[] arr = testStr.split("\\s");
 
         for(String singleTestString : arr)
-            System.out.println(getTotalCount(singleTestString, lineString));
+            System.out.println(getTotalCountOfTheSubWord(singleTestString, lineString));
         // Releasing the resources
         sc.close();
     }
-    private static int getTotalCount(String testStr, String sentence){
+    private static int getTotalCountOfTheSubWord(String testStr, String sentence){
         int count = 0;
         // Constructing the regex for every test strings
         final Pattern p = Pattern.compile("\\B" +  testStr + "\\B");

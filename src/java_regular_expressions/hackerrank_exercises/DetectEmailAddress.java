@@ -9,20 +9,20 @@ import java.util.regex.Matcher;
 
 public class DetectEmailAddress {
     private static final Scanner sc = new Scanner(System.in);
-    private static final Pattern p1 = Pattern.compile("[\\w.]+?@\\w+?(?:\\.\\w+)+", Pattern.MULTILINE);
+    private static final Pattern p1 = Pattern.compile("[\\w.]+?@\\w+?(?:\\.\\w+)+");
     public static void main(String[] args){
         int testCases = sc.nextInt();
         // To stop getting "" as the first input
         sc.nextLine();
         // Reading the file as a single String
         String str = readHtml(testCases);
-        matchLink(str);
+        detectEmail(str);
         // Releasing the resources
         sc.close();
 
     }
 
-    private static void matchLink(String str){
+    private static void detectEmail(String str){
         Matcher m = p1.matcher(str);
         // Using HashSet to add each tag only once
         HashSet<String> hashSet = new HashSet<>();
