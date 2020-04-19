@@ -4,6 +4,7 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 public class FindAWord {
     private static final Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args){
         int numberOfLines = sc.nextInt();
         sc.nextLine();
