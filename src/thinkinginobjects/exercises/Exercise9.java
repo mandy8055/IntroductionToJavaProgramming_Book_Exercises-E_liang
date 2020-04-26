@@ -1,6 +1,6 @@
 package thinkinginobjects.exercises;
 
-import thinkinginobjects.casestudies.Course;
+import thinkinginobjects.casestudiesandutilities.Course;
 
 public class Exercise9 {
     public static void main(String[] args){

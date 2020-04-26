@@ -1,4 +1,4 @@
-package thinkinginobjects.exercises;
+package thinkinginobjects.casestudiesandutilities;
 
 public class Tax{
     public static final int SINGLE_FILER = 0;

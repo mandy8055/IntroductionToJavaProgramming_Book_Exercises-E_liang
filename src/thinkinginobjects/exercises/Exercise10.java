@@ -1,5 +1,5 @@
 package thinkinginobjects.exercises;
-import thinkinginobjects.casestudies.GuessDate;
+import thinkinginobjects.casestudiesandutilities.GuessDate;
 import java.util.Scanner;
 public class Exercise10 {
     private static final Scanner sc = new Scanner(System.in);

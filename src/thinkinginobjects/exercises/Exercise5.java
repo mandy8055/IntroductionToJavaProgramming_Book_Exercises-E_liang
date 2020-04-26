@@ -1,5 +1,5 @@
 package thinkinginobjects.exercises;
-import thinkinginobjects.casestudies.StackOfIntegers;
+import thinkinginobjects.casestudiesandutilities.StackOfIntegers;
 import java.util.Scanner;
 
 public class Exercise5 {

@@ -1,4 +1,7 @@
 package thinkinginobjects.exercises;
+
+import thinkinginobjects.casestudiesandutilities.Tax;
+
 public class Exercise8 {
     public static void main(String[] args){
 //      2009 filing bracket and rates

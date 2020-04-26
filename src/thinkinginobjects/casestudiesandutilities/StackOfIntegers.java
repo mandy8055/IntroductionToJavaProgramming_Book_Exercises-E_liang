@@ -1,4 +1,4 @@
-package thinkinginobjects.casestudies;
+package thinkinginobjects.casestudiesandutilities;
 
 public class StackOfIntegers {
     private int[] elements;

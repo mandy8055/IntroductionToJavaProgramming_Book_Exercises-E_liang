@@ -1,4 +1,4 @@
-package thinkinginobjects.casestudies;
+package thinkinginobjects.casestudiesandutilities;
 import java.util.Arrays;
 
 public class Course {
