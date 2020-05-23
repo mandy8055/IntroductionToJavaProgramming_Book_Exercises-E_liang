@@ -13,7 +13,7 @@ class Hangman{
     private static final Scanner sc = new Scanner(System.in);
     private static final Random random = new Random();
     private final String[] wordList = {"hurry", "body", "corrupt", "announce", "conspire",
-            "transfer", "magnify", "uttermost", "kindhearted", "faithful", "obese", "mew"};
+            "transfer", "magnify", "uttermost", "kindhearted", "faithful", "obese", "mew", "Hello World"};
     private final int totalHints = 5;
     private String word;
     private String encrypted;
@@ -36,7 +36,7 @@ class Hangman{
         while(true){
             System.out.println("Hints Remaining: " + hintsRemaining);
             System.out.print("(Guess) Enter a letter of the word " + encrypted + " > ");
-            char ch = sc.nextLine().charAt(0);
+            char ch = Character.toLowerCase(sc.nextLine().charAt(0));
             if(isPresent(word, ch)){
                 if (isPresent(encrypted, ch))System.out.println(ch + " is already in the word.");
                 else encrypted = getUpdatedString(ch);
@@ -59,7 +59,8 @@ class Hangman{
     private String getStars(){
         StringBuilder sb = new StringBuilder();
         for(char ch : word.toCharArray()){
-            sb.append("*");
+            if(Character.isSpaceChar(ch))sb.append(" ");
+            else sb.append("*");
         }
         return sb.toString();
     }
@@ -79,7 +80,8 @@ class Hangman{
         StringBuilder sb = new StringBuilder();
         int i = 0;
         for(char chr : word.toCharArray()){
-            if(chr == ch || chr == ' ')sb.append(ch);
+            if(chr == ch)sb.append(ch);
+            else if(chr == ' ')sb.append(' ');
             else if(encrypted.charAt(i) != '*')sb.append(chr);
             else sb.append("*");
             i++;
@@ -88,7 +90,7 @@ class Hangman{
     }
 //  Method to display message when a user wins the game
     private String victory(){
-        return "Viola!! You guessed it right. Congratulations on the job well done...";
+        return "Viola!! You guessed it right. The word is "+ word +". Congratulations on the job well done...";
     }
 
 //  Method to count number of stars in the given encrypted String
