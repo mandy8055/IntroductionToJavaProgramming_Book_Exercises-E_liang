@@ -1,7 +1,10 @@
 package algorithm.sorting;
 
+import org.jetbrains.annotations.NotNull;
+
 class SortingAlgos {
-     void bubbleSort(int[] arr){
+    // Implementation of Bubble Sort
+    void bubbleSort(int @NotNull [] arr){
         boolean swapped;
         for(int i = 0; i < arr.length; i++){
             swapped = false;
@@ -16,7 +19,8 @@ class SortingAlgos {
             if(!swapped)break;
         }
     }
-    void insertionSort(int[] arr){
+    // Implementation of Insertion Sort
+    void insertionSort(int @NotNull [] arr){
          for(int i = 1; i < arr.length; i++){
              int key = arr[i];
              int j = i - 1;
@@ -27,7 +31,24 @@ class SortingAlgos {
              arr[j + 1] = key;
          }
     }
-
+// Implementation of Merge Sort
+    void mergeSort(int[] arr, int left, int right){
+         if(left < right){
+             int middle = (int) Math.floor((left + right) / 2);
+             mergeSort(arr, left, middle);
+             mergeSort(arr, middle + 1, right);
+             merge(arr, left, middle, right);
+         }
+    }
+// Implementation of Quick Sort
+    void quickSort(int[] arr, int low, int high){
+         if(low < high){
+             int partitions = partition(arr, low, high);
+             quickSort(arr, low, partitions - 1);
+             quickSort(arr, partitions + 1, high);
+         }
+    }
+// Implementation of Selection Sort
     void selectionSort(int[] arr){
          for(int i = 0; i < arr.length - 1; i++){
              int jmin = i;
@@ -52,5 +73,50 @@ class SortingAlgos {
             }
             System.out.print(arr[i] + ", ");
         }
+   }
+//   Implementation of merge algorithm
+   private static void merge(int[] arr, int left, int middle, int right){
+         // define the sizes of the sub-arrays
+       int n1 = middle - left + 1;
+       int n2 = right - middle;
+//       Create two sub-arrays
+       int[] LEFT = new int[n1];
+       int[] RIGHT = new int[n2];
+       // Populate the sub-arrays
+       for(int i = 0; i < n1; i++)
+           LEFT[i] = arr[left + i];
+       for(int j = 0; j < n2; j++)
+           RIGHT[j] = arr[middle + 1 + j];
+       // Merge the sub-arrays
+       int k = left, i = 0, j = 0;
+       while(i < n1 && j < n2){
+           if(LEFT[i] <= RIGHT[j])
+               arr[k] = LEFT[i++];
+           else
+               arr[k] = RIGHT[j++];
+           k++;
+       }
+       // Merge the remaining elements
+       while(i < n1)
+           arr[k++] = LEFT[i++];
+       while(j < n2)
+           arr[k++] = RIGHT[j++];
+   }
+// Implementation of partition algorithm
+   private static int partition(int[] arr, int low, int high){
+         int pivot = arr[high];
+         int i = low - 1;
+         for(int j = low; j < arr.length - 1; j++){
+             if(pivot >= arr[j]){
+                 i++;
+                 int temp = arr[j];
+                 arr[j] = arr[i];
+                 arr[i] = temp;
+             }
+         }
+         int temp = arr[high];
+         arr[high] = arr[i + 1];
+         arr[i + 1] = temp;
+         return (i + 1);
    }
 }

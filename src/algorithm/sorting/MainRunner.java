@@ -6,7 +6,9 @@ public class MainRunner {
         SortingAlgos st = new SortingAlgos();
 //        st.bubbleSort(arr);
 //        st.insertionSort(arr);
-        st.selectionSort(arr);
+//        st.selectionSort(arr);
+//        st.mergeSort(arr, 0, arr.length - 1);
+        st.quickSort(arr, 0, arr.length - 1);
         SortingAlgos.printArr(arr);
     }
 }
