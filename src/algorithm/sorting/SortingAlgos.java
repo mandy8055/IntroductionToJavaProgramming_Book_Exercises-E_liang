@@ -2,6 +2,8 @@ package algorithm.sorting;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
+
 class SortingAlgos {
     // Implementation of Bubble Sort
     void bubbleSort(int @NotNull [] arr){
@@ -119,4 +121,30 @@ class SortingAlgos {
          arr[i + 1] = temp;
          return (i + 1);
    }
+   // NON-COMPARISON Based sorting algorithms
+   /*
+   * 1. Time complexity : O(n + k) where k is the range
+   * 2. Space complexity: O(n) for the auxiliary array
+   * */
+   void countingSort(int[] arr, int range){
+       // Auxiliary array
+       int[] tempArr = new int[range + 1];
+       // Initialize every element in an array with 0.
+       Arrays.fill(tempArr, 0);
+       // Maintain count of elements which are being repeated in the array.
+       for (int value : arr) {
+           tempArr[value]++;
+       }
+       int k = 0;
+       for(int i = 0; i <= range; i++){
+           if(tempArr[i] != 0){
+               int j;
+               for(j = 0; j < tempArr[i]; j++){
+                   arr[k++] = i;
+               }
+           }
+       }
+   }
 }
+
+
